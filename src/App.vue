@@ -1,6 +1,7 @@
 <script setup>
 import {ref} from 'vue'
 import SkillBlock from './components/SkillBlock.vue';
+import Timeline from './components/Timeline.vue';
 
 const skills = ref(
   [
@@ -50,7 +51,10 @@ const skills = ref(
     </div>
   </section>
   <section id="cv">
-    
+    <div class="container">
+      <h2>Lebenslauf</h2>
+      <Timeline/>
+    </div>
   </section>
 </template>
 
@@ -102,5 +106,14 @@ section#skills .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+#cv .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#cv h2 {
+  align-self: flex-start;
 }
 </style>
