@@ -3,9 +3,7 @@
     <div class="year">{{ event.year }}</div>
     <div class="content">
       <h3>{{ event.title }}</h3>
-      <p v-if="event.company">{{ event.company }}</p>
       <p v-if="event.institution">{{ event.institution }}</p>
-      <!--<p class="description">{{ event.description }}</p>-->
     </div>
   </div>
 </template>

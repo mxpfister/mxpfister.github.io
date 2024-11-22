@@ -1,31 +1,30 @@
 <template>
     <div class="timeline">
-      <div class="timeline-middle">
-        <div class="timeline-fill" :style="{ height: fillHeight + '%' }"></div>
-      </div>
-  
-      <div class="timeline-left">
-        <div v-for="(event, index) in events" :key="index">
-          <TimelineEvent
-            v-if="isEven(index)"
-            :event="event"
-          />
-          <div v-else class="placeholder"></div>
+        <div class="timeline-middle">
+            <div class="timeline-fill" :style="{ height: fillHeight + '%' }"></div>
         </div>
-      </div>
-  
-      <div class="timeline-right">
-        <div v-for="(event, index) in events" :key="index">
-          <TimelineEvent
-            v-if="!isEven(index)"
-            :event="event"
-          />
-          <div v-else class="placeholder"></div>
+
+        <div class="timeline-left">
+            <div v-for="(event, index) in events" :key="index">
+                <TimelineEvent
+                    v-if="isEven(index)"
+                    :event="event"
+                />
+                <div v-else class="placeholder"></div>
+            </div>
         </div>
-      </div>
+
+        <div class="timeline-right">
+            <div v-for="(event, index) in events" :key="index">
+                <TimelineEvent
+                    v-if="!isEven(index)"
+                    :event="event"
+                />
+                <div v-else class="placeholder"></div>
+            </div>
+        </div>
     </div>
-  </template>
-  
+</template>
 
 <script>
 import TimelineEvent from './TimelineEvent.vue';
@@ -37,25 +36,32 @@ export default {
     data() {
         return {
             events: [
-            {
-                    year: 2021,
-                    title: "Bachelor in Informatik",
-                    institution: "Universität XYZ",
-                    description: "Schwerpunkte in KI und Datenvisualisierung.",
+                {
+                    year: '09/2018-07/2020',
+                    title: "Fachhochschulreife",
+                    institution: "Fachoberschule Würzburg"
                 },
                 {
-                    year: 2023,
-                    title: "Frontend Developer",
-                    company: "TechCorp",
-                    description: "Entwicklung von Webanwendungen und UX-Design.",
+                    year: '10/2020-10/2024',
+                    title: "E-Commerce (B. Sc.)",
+                    institution: "Technische Hochschule Würzburg-Schweinfurt"
                 },
                 {
-                    year: 2024,
-                    title: "Master in XY",
-                    institution: "Universität XYZ",
-                    description: "Schwerpunkte in KI und Datenvisualisierung.",
+                    year: '09/2022-02/2023',
+                    title: "Praktikum in der Web-Entwicklung",
+                    institution: "Cutvert GmbH"
                 },
-                
+                {
+                    year: '02/2023-heute',
+                    title: "Junior Web Developer (Werkstudent)",
+                    institution: "Cutvert GmbH"
+                },
+                {
+                    year: '10/2024-heute',
+                    title: "Digital Business Systems (M. Sc.)",
+                    institution: "Technische Hochschule Würzburg-Schweinfurt"
+                },
+
             ],
             fillHeight: 0
         };
@@ -73,7 +79,7 @@ export default {
             const timelineHeight = this.$el.scrollHeight;
 
             const scrolledPercentage = Math.min(
-                ((scrollTop - timelineTop + window.innerHeight - 100) / timelineHeight) * 100,
+                ((scrollTop - timelineTop + window.innerHeight - 200) / timelineHeight) * 100,
                 100
             );
 
@@ -88,7 +94,7 @@ export default {
 <style scoped>
 .timeline {
     width: 80%;
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 10px 1fr;
@@ -116,10 +122,10 @@ export default {
 }
 
 .timeline::before {
-    content:"\A";
-    width:30px;
-    height:30px;
-    border-radius:50%;
+    content: "\A";
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     background-color: var(--sec-color);
     position: absolute;
     left: 50%;
