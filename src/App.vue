@@ -5,8 +5,11 @@ import Timeline from './components/Timeline.vue';
 
 const skills = ref(
   [
-    { name: 'HTML5', imgUrl: 'images/skill-logos/html.svg', alt: 'HTML Logo', color: '#4287f5' },
-    { name: 'CSS', imgUrl: 'images/skill-logos/css.svg', alt: 'CSS Logo', color: '#fff' }
+    { name: 'HTML', imgUrl: 'images/skill-logos/html.svg', alt: 'HTML Logo', color: '#ffa02e', grading: 9.5 },
+    { name: 'CSS', imgUrl: 'images/skill-logos/css.svg', alt: 'CSS Logo', color: '#2965F1', grading: 9 },
+    { name: 'JavaScript', imgUrl: 'images/skill-logos/js.svg', alt: 'JavaScript Logo', color: '#ffd600', grading: 7.5 },
+    { name: 'PHP', imgUrl: 'images/skill-logos/php.svg', alt: 'PHP Logo', color: '#927ba9', grading: 8 },
+    { name: 'Python', imgUrl: 'images/skill-logos/python.svg', alt: 'Python Logo', color: '#0295ec', grading: 6.5 },
   ]
 )
 
@@ -48,7 +51,7 @@ const skills = ref(
       <h2>Skills</h2>
       <div class="skill-block-wrapper">
         <SkillBlock v-for="skill in skills" :key="skill.imgUrl" :skill-name="skill.name" :image-url="skill.imgUrl"
-          :image-alt="skill.alt" :color="skill.color" />
+          :image-alt="skill.alt" :color="skill.color" :grading="skill.grading"/>
       </div>
     </div>
   </section>
