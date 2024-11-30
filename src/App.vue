@@ -32,9 +32,7 @@ const skills = ref(
   </section>
   <section id="about-me">
     <div class="container">
-      <div class="media-wrapper">
-        <img src="./assets/images/avatar.png">
-      </div>
+      <div id="spinning-text" class="media-wrapper"></div>
       <div class="text-wrapper">
         <h2>Über mich</h2>
         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
@@ -72,6 +70,7 @@ const skills = ref(
       </a>
     </div>
   </section>
+  <section id=stars></section>
 </template>
 
 <style>
