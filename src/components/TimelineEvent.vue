@@ -57,4 +57,10 @@ export default {
 .odd-item {
   background-color: #444;
 }
+
+@media (max-width: 768px) {
+  .timeline-component {
+    margin-top: 20px;
+  }
+}
 </style>

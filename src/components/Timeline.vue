@@ -1,25 +1,24 @@
 <template>
-    <div class="timeline">
+    <div ref=timeline class="timeline" :class="{ 'is-mobile': isMobile }">
         <div class="timeline-middle">
             <div class="timeline-fill" :style="{ height: fillHeight + '%' }"></div>
         </div>
 
-        <div class="timeline-left">
-            <div v-for="(event, index) in events" :key="index">
-                <TimelineEvent
-                    v-if="isEven(index)"
-                    :event="event"
-                />
-                <div v-else class="placeholder"></div>
+        <div v-if="isMobile" class="timeline-mobile">
+            <div class="timeline-events">
+                <TimelineEvent v-for="(event, index) in events" :key="index" :event="event" />
             </div>
         </div>
 
-        <div class="timeline-right">
+        <div v-if="!isMobile" class="timeline-left">
             <div v-for="(event, index) in events" :key="index">
-                <TimelineEvent
-                    v-if="!isEven(index)"
-                    :event="event"
-                />
+                <TimelineEvent v-if="isEven(index)" :event="event" />
+                <div v-else class="placeholder"></div>
+            </div>
+        </div>
+        <div v-if="!isMobile" class="timeline-right">
+            <div v-for="(event, index) in events" :key="index">
+                <TimelineEvent v-if="!isEven(index)" :event="event" />
                 <div v-else class="placeholder"></div>
             </div>
         </div>
@@ -36,47 +35,36 @@ export default {
     data() {
         return {
             events: [
-                {
-                    year: '09/2018-07/2020',
-                    title: "Fachhochschulreife",
-                    institution: "Fachoberschule Würzburg"
-                },
-                {
-                    year: '10/2020-10/2024',
-                    title: "E-Commerce (B. Sc.)",
-                    institution: "Technische Hochschule Würzburg-Schweinfurt"
-                },
-                {
-                    year: '09/2022-02/2023',
-                    title: "Praktikum in der Web-Entwicklung",
-                    institution: "Cutvert GmbH"
-                },
-                {
-                    year: '02/2023-heute',
-                    title: "Junior Web Developer (Werkstudent)",
-                    institution: "Cutvert GmbH"
-                },
-                {
-                    year: '10/2024-heute',
-                    title: "Digital Business Systems (M. Sc.)",
-                    institution: "Technische Hochschule Würzburg-Schweinfurt"
-                },
-
+                { year: '09/2018-07/2020', title: "Fachhochschulreife", institution: "Fachoberschule Würzburg" },
+                { year: '10/2020-10/2024', title: "E-Commerce (B. Sc.)", institution: "Technische Hochschule Würzburg-Schweinfurt" },
+                { year: '09/2022-02/2023', title: "Praktikum in der Web-Entwicklung", institution: "Cutvert GmbH" },
+                { year: '02/2023-heute', title: "Junior Web Developer (Werkstudent)", institution: "Cutvert GmbH" },
+                { year: '10/2024-heute', title: "Digital Business Systems (M. Sc.)", institution: "Technische Hochschule Würzburg-Schweinfurt" },
             ],
-            fillHeight: 0
+            fillHeight: 0,
+            isMobile: false
         };
     },
     mounted() {
+        this.handleResize();
+        window.addEventListener("resize", this.handleResize);
         window.addEventListener("scroll", this.handleScroll);
     },
     beforeDestroy() {
+        window.removeEventListener("resize", this.handleResize);
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
+        handleResize() {
+            this.isMobile = window.innerWidth <= 768;
+        },
         handleScroll() {
+            const timeline = this.$refs.timeline;
+            if (!timeline) return;
+
             const scrollTop = window.scrollY;
-            const timelineTop = this.$el.offsetTop;
-            const timelineHeight = this.$el.scrollHeight;
+            const timelineTop = timeline.offsetTop || 0;
+            const timelineHeight = timeline.scrollHeight || 1;
 
             const scrolledPercentage = Math.min(
                 ((scrollTop - timelineTop + window.innerHeight - 200) / timelineHeight) * 100,
@@ -93,13 +81,25 @@ export default {
 </script>
 <style scoped>
 .timeline {
-    width: 80%;
+    width: 90%;
     max-width: 850px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 10px 1fr;
     gap: 20px;
     position: relative;
+}
+
+.timeline.is-mobile {
+    grid-template-columns: max-content;
+}
+
+.timeline.is-mobile .timeline-middle {
+    grid-column: 1;
+}
+
+.timeline.is-mobile .timeline-mobile {
+    grid-column: 2;
 }
 
 .timeline-middle {
@@ -121,6 +121,12 @@ export default {
     transition: height 0.5s ease-out;
 }
 
+.timeline-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .timeline::before {
     content: "\A";
     width: 30px;
@@ -131,6 +137,18 @@ export default {
     left: 50%;
     top: -3%;
     transform: translateX(-50%);
+    z-index: 999;
+}
+.timeline.is-mobile::before {
+    content: "\A";
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--sec-color);
+    position: absolute;
+    left: -10px;
+    top: -1%;
+    transform: unset;
     z-index: 999;
 }
 
