@@ -109,6 +109,7 @@ export default {
     background-color: #e0e0e0;
     overflow: hidden;
     grid-row: 1 / span 3;
+    border-radius: 5px;
 }
 
 .timeline-fill {
@@ -139,6 +140,7 @@ export default {
     transform: translateX(-50%);
     z-index: 999;
 }
+
 .timeline.is-mobile::before {
     content: "\A";
     width: 30px;

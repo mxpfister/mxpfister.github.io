@@ -25,7 +25,7 @@ const skills = ref(
         <img src="./assets/images/me.png">
       </div>
       <div class="text-wrapper">
-        <p style="font-size: 35px; padding-left: 45px;"><span class="highlight">Web-Entwickler </span>mit Verständnis
+        <p><span class="highlight">Web-Entwickler </span>mit Verständnis
           für Business und E-Commerce</p>
       </div>
     </div>
@@ -35,12 +35,14 @@ const skills = ref(
       <div id="spinning-text" class="media-wrapper"></div>
       <div class="text-wrapper">
         <h2>Über mich</h2>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-          clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-          consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <p>Hi, ich bin Web-Entwickler mit Fokus auf die Verbindung von Technik und Business. Mit meinem Bachelor in
+          E-Commerce und dem aktuellen Master-Studium in "Digital Business Systems", bringe ich Kenntnisse mit, die über
+          die reine Entwicklung hinausgehen. Meine Erfahrung als Werkstudent umfasst die Entwicklung individueller
+          Plugins und Themes für WordPress und Shopware 6, sowie die Optimierung von internen Prozessen durch die
+          Entwicklung ein passenden
+          CRM-Systems. <br> In meiner Freizeit beschäftige ich mit der Programmierung, Smart-Home-Technologien und
+          Automatisierungen. Als
+          Ausgleich betreibe ich gerne Kraftsport, um mich körperlich an meine Grenzen zu bringen.</p>
       </div>
     </div>
   </section>
@@ -49,7 +51,7 @@ const skills = ref(
       <h2>Skills</h2>
       <div class="skill-block-wrapper">
         <SkillBlock v-for="skill in skills" :key="skill.imgUrl" :skill-name="skill.name" :image-url="skill.imgUrl"
-          :image-alt="skill.alt" :color="skill.color" :grading="skill.grading"/>
+          :image-alt="skill.alt" :color="skill.color" :grading="skill.grading" />
       </div>
     </div>
   </section>
@@ -86,7 +88,21 @@ footer {
 }
 
 #welcome {
-  padding: 0;
+  padding-bottom: 0;
+}
+
+#welcome .media-wrapper {
+  align-self: end;
+}
+
+#welcome img {
+  position: relative;
+  top: 7px;
+}
+
+#welcome .text-wrapper:last-of-type p {
+  font-size: 35px;
+  padding-left: 45px;
 }
 
 section#welcome,
@@ -105,16 +121,17 @@ section#skills .container {
   display: block;
 }
 
-.text-wrapper {
-  width: 50%;
-}
-
+.text-wrapper,
 .media-wrapper {
   width: 50%;
 }
 
 #about-me .text-wrapper {
   width: 70%;
+}
+
+#about-me .text-wrapper p {
+  font-size: 16px;
 }
 
 #about-me .media-wrapper {
@@ -177,5 +194,98 @@ section#skills .container {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.link-wrapper {
+  width: fit-content;
+  margin: auto;
+}
+
+.link {
+  color: #fff;
+}
+
+footer .link {
+  margin: 0 15px;
+  position: relative;
+  text-decoration: none;
+}
+
+footer .link::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: var(--sec-color);
+  bottom: -5px;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+footer .link:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+@media (max-width: 1024px) {
+  .skill-block-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skill-block img {
+    width: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  h2 {
+    margin-bottom: 5px;
+  }
+
+  .skill-block-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  section .container {
+    flex-direction: column;
+  }
+
+  section#about-me .container {
+    flex-direction: column-reverse !important;
+  }
+
+  section#about-me .text-wrapper {
+    width: 100%;
+  }
+
+  section#cv h2 {
+    padding-bottom: 20px;
+  }
+
+  #welcome .text-wrapper:last-of-type {
+    order: 0;
+  }
+
+  #welcome .media-wrapper {
+    order: 1;
+  }
+
+  #welcome .text-wrapper:last-of-type p {
+    font-size: 23px;
+    padding-left: 0;
+  }
+
+  #welcome .catch-phrase {
+    font-size: 35px;
+    line-height: unset;
+  }
+
+  .text-wrapper,
+  .media-wrapper {
+    width: 100%;
+  }
 }
 </style>

@@ -42,4 +42,15 @@ const imgSrc = computed(() => {
 .grading {
   font-size: 23px;
 }
+@media (max-width: 768px) {
+  .skill-block img {
+    width: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .skill-block img {
+    width: 30px;
+  }
+}
 </style>
