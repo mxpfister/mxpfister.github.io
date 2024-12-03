@@ -11,7 +11,6 @@ app.use(createPinia())
 
 app.mount('#app')
 
-import { Stars } from './Three/Stars.js'
 import { SpinningText } from './Three/SpinningText.js'
 function create3D() {
     const textContainer = document.querySelector('#spinning-text')
@@ -21,8 +20,5 @@ function create3D() {
         curveSegments: 4,
         bevelThickness: 0
     })
-
-    const starsContainer = document.querySelector('#stars')
-    new Stars(starsContainer)
 }
 create3D()

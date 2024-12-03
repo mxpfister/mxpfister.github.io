@@ -70,11 +70,17 @@ const skills = ref(
       </a>
     </div>
   </section>
-  <section id=stars></section>
+  <footer>
+    <div class="link-wrapper">
+      <a class="link" href="#">Impressum</a>
+      <a class="link" href="#">Datenschutzerklärung</a>
+    </div>
+  </footer>
 </template>
 
 <style>
-section {
+section,
+footer {
   padding: 20px 0;
   background-color: #242526;
 }
