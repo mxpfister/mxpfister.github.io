@@ -188,6 +188,16 @@ footer .link:hover::before {
   .skill-block img {
     width: 40px;
   }
+
+  #welcome .catch-phrase {
+    font-size: 35px;
+    line-height: unset;
+  }
+
+  #welcome .text-wrapper:last-of-type p {
+    font-size: 23px;
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 576px) {
@@ -221,16 +231,6 @@ footer .link:hover::before {
 
   #welcome .media-wrapper {
     order: 1;
-  }
-
-  #welcome .text-wrapper:last-of-type p {
-    font-size: 23px;
-    padding-left: 0;
-  }
-
-  #welcome .catch-phrase {
-    font-size: 35px;
-    line-height: unset;
   }
 
   .text-wrapper,
