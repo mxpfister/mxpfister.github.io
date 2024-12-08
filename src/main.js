@@ -12,15 +12,3 @@ app.use(router)
 app.use(createPinia())
 
 app.mount('#app')
-
-import { SpinningText } from './Three/SpinningText.js'
-function create3D() {
-    const textContainer = document.querySelector('#spinning-text')
-    new SpinningText(textContainer, '</>', {
-        size: 30,
-        depth: 5,
-        curveSegments: 4,
-        bevelThickness: 0
-    })
-}
-create3D()

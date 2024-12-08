@@ -1,7 +1,8 @@
 <script setup>
 import Timeline from '@/components/Timeline.vue';
 import SkillBlock from '@/components/SkillBlock.vue';
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
+import { SpinningText } from '../Three/SpinningText.js'
 
 const skills = ref(
     [
@@ -11,7 +12,19 @@ const skills = ref(
         { name: 'PHP', imgUrl: 'images/skill-logos/php.svg', alt: 'PHP Logo', color: '#927ba9', grading: 8 },
         { name: 'Python', imgUrl: 'images/skill-logos/python.svg', alt: 'Python Logo', color: '#0295ec', grading: 6.5 },
     ]
-)
+);
+
+onMounted(() => {
+    const textContainer = document.querySelector('#spinning-text')
+    if (textContainer) {
+        new SpinningText(textContainer, '</>', {
+            size: 30,
+            depth: 5,
+            curveSegments: 4,
+            bevelThickness: 0
+        })
+    }
+});
 </script>
 <template>
     <section id="welcome">
@@ -76,7 +89,5 @@ const skills = ref(
         </div>
     </section>
 </template>
-<script setup>
-</script>
 
 <style scoped></style>
