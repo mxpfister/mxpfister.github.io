@@ -1,7 +1,4 @@
-import Home from '@/views/Home.vue'
-import Imprint from '@/views/Imprint.vue'
-import PrivacyPolicy from '@/views/PrivacyPolicy.vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,19 +6,19 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: Home,
+      component: () => import('@/views/Home.vue'),
     },
     {
       path: '/impressum',
       name: 'Impressum',
-      component: Imprint,
+      component: () => import('@/views/Imprint.vue'),
     },
     {
       path: '/datenschutz',
       name: 'Datenschutz',
-      component: PrivacyPolicy,
+      component: () => import('@/views/PrivacyPolicy.vue'),
     },
   ],
-})
+});
 
-export default router
+export default router;
