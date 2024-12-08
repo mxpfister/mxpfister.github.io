@@ -25,7 +25,7 @@ export default {
 <style scoped>
 .timeline-component {
   padding: 20px;
-  background-color: #242526;
+  background-color: var(--dark-bckgr);
   box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #242424;
   border-radius: 6px;
   padding: 1.75rem;

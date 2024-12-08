@@ -36,7 +36,7 @@ h3 {
 section,
 footer {
   padding: 20px 0;
-  background-color: #242526;
+  background-color: var(--dark-bckgr);
 }
 
 #welcome {
@@ -59,7 +59,7 @@ footer {
 
 section#welcome,
 section#skills {
-  background-color: #595959 !important;
+  background-color: var(--light-bckgr) !important;
 }
 
 section .container {
@@ -73,9 +73,11 @@ section#skills .container {
   display: block;
 }
 
-.text-wrapper,
+.text-wrapper {
+  width: 60%
+}
 .media-wrapper {
-  width: 50%;
+  width: 40%;
 }
 
 #about-me .text-wrapper {
@@ -84,10 +86,6 @@ section#skills .container {
 
 #about-me .text-wrapper p {
   font-size: 16px;
-}
-
-#about-me .media-wrapper {
-  width: 30%;
 }
 
 #about-me .media-wrapper img {
