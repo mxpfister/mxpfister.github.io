@@ -67,7 +67,7 @@ export default {
             const timelineHeight = timeline.scrollHeight || 1;
 
             const scrolledPercentage = Math.min(
-                ((scrollTop - timelineTop + window.innerHeight - 200) / timelineHeight) * 100,
+                ((scrollTop - timelineTop + window.innerHeight - 150) / timelineHeight) * 100,
                 100
             );
 

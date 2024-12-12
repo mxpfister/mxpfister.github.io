@@ -33,7 +33,7 @@ onMounted(() => {
                 <p class="catch-phrase">Hi, ich bin <br><span class="bold highlight">Max</span></p>
             </div>
             <div class="media-wrapper">
-                <img src="@/assets/images/me.png" alt="Max">
+                <img src="@/assets/images/me.webp" alt="Max">
             </div>
             <div class="text-wrapper">
                 <p><span class="highlight">Web-Entwickler </span>mit Verständnis
