@@ -47,18 +47,12 @@ onMounted(() => {
             <div class="text-wrapper">
                 <h2>Über mich</h2>
                 <p>Hi, ich bin Web-Entwickler mit Fokus auf die Verbindung von Technik und Business. Mit meinem Bachelor
-                    in
-                    E-Commerce und dem aktuellen Master-Studium in "Digital Business Systems", bringe ich Kenntnisse
-                    mit, die über
-                    die reine Entwicklung hinausgehen. Meine Erfahrung als Werkstudent umfasst die Entwicklung
-                    individueller
-                    Plugins und Themes für WordPress und Shopware 6, sowie die Optimierung von internen Prozessen durch
-                    die
-                    Entwicklung ein passenden
-                    CRM-Systems. <br> In meiner Freizeit beschäftige ich mit der Programmierung, Smart-Home-Technologien
-                    und
-                    Automatisierungen. Als
-                    Ausgleich betreibe ich gerne Kraftsport, um mich körperlich an meine Grenzen zu bringen.</p>
+                    in E-Commerce und dem aktuellen Master-Studium in "Digital Business Systems", bringe ich Kenntnisse
+                    mit, die über die reine Entwicklung hinausgehen. <br>Meine Erfahrung als Werkstudent umfasst die Entwicklung
+                    individueller Plugins und Themes für WordPress und Shopware 6, sowie die Optimierung von internen Prozessen durch
+                    die Entwicklung eines passenden
+                    CRM-Systems. Aktuell unterstütze ich als Werkstudent in der IT-Abteilung des Fulfillments von Flyeralarm die Abwicklung und Optimierung logistischer Prozesse. Dabei arbeite ich an Schnittstellen, Datenflüssen und Automatisierungen, um interne Abläufe effizienter zu gestalten.<br> In meiner Freizeit beschäftige ich mit der Programmierung, Smart-Home-Technologien
+                    und Automatisierungen. Als Ausgleich betreibe ich gerne Kraftsport, um mich körperlich an meine Grenzen zu bringen.</p>
             </div>
         </div>
     </section>
@@ -89,5 +83,3 @@ onMounted(() => {
         </div>
     </section>
 </template>
-
-<style scoped></style>

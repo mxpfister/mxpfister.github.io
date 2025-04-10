@@ -38,8 +38,9 @@ export default {
                 { year: '09/2018-07/2020', title: "Fachhochschulreife", institution: "Fachoberschule Würzburg" },
                 { year: '10/2020-10/2024', title: "E-Commerce (B. Sc.)", institution: "Technische Hochschule Würzburg-Schweinfurt" },
                 { year: '09/2022-02/2023', title: "Praktikum in der Web-Entwicklung", institution: "Cutvert GmbH" },
-                { year: '02/2023-heute', title: "Junior Web Developer (Werkstudent)", institution: "Cutvert GmbH" },
+                { year: '02/2023-02/2025', title: "Junior Web Developer (Werkstudent)", institution: "Cutvert GmbH" },
                 { year: '10/2024-heute', title: "Digital Business Systems (M. Sc.)", institution: "Technische Hochschule Würzburg-Schweinfurt" },
+                { year: '03/2025-heute', title: "Werkstudent IT (Fulfillment)", institution: "FLYERALARM" },
             ],
             fillHeight: 0,
             isMobile: false
