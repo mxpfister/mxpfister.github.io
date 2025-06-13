@@ -24,3 +24,6 @@ rm:
 clean: stop rm
 
 rebuild: clean build run
+
+npm-build:
+	docker exec $(CONTAINER_NAME) npm run build
