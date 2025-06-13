@@ -26,8 +26,12 @@ class SpinningText {
         this.camera = null;
         this.renderer = null;
         this.textMesh = null;
+        this.userInteracting = false;
+        this.lastPointerX = null;
+        this.rotationVelocity = 0;
 
         this.init();
+        this.addInteractionListeners();
     }
 
     init() {
@@ -108,11 +112,45 @@ class SpinningText {
         this.renderer.setSize(this.container.offsetWidth, this.containerHeight);
     }
 
+    addInteractionListeners() {
+        const handleMove = (event) => {
+            this.userInteracting = true;
+
+            let clientX;
+            if (event.touches) {
+                clientX = event.touches[0].clientX;
+            } else {
+                clientX = event.clientX;
+            }
+
+            if (this.lastPointerX !== null) {
+                const deltaX = clientX - this.lastPointerX;
+                this.rotationVelocity = deltaX * 0.01;
+            }
+
+            this.lastPointerX = clientX;
+        };
+
+        const handleEnd = () => {
+            this.lastPointerX = null;
+        };
+
+        this.container.addEventListener('mousemove', handleMove);
+        this.container.addEventListener('touchmove', handleMove);
+        this.container.addEventListener('mouseup', handleEnd);
+        this.container.addEventListener('touchend', handleEnd);
+    }
+
     animate() {
         requestAnimationFrame(() => this.animate());
 
         if (this.textMesh) {
-            this.textMesh.rotation.y += this.options.rotationSpeed;
+            if (this.userInteracting) {
+                this.textMesh.rotation.y += this.rotationVelocity;
+                this.rotationVelocity *= 0.95;
+            } else {
+                this.textMesh.rotation.y += this.options.rotationSpeed;
+            }
         }
 
         this.renderer.render(this.scene, this.camera);
