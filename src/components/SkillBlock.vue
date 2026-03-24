@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 
-const props = defineProps(['skillName', 'imageUrl', 'imageAlt','grading', 'color']);
+const props = defineProps(['skillName', 'imageUrl', 'imageAlt', 'color']);
 const imgSrc = computed(() => {
   return new URL(`../assets/${props.imageUrl}`, import.meta.url).href
 })
@@ -11,7 +11,6 @@ const imgSrc = computed(() => {
     <div class="skill-block" :style="{ '--color': props.color}">
       <img :src="imgSrc" :alt="imageAlt">  
       <h3>{{ skillName }}</h3>
-      <div class="grading">{{ grading }} / 10</div>
     </div>
 </template>
 
@@ -37,9 +36,6 @@ const imgSrc = computed(() => {
 }
 .skill-block h3 {
   font-weight: 600;
-  font-size: 23px;
-}
-.grading {
   font-size: 23px;
 }
 @media (max-width: 768px) {
