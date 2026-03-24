@@ -109,6 +109,10 @@ section#skills .container {
   gap: 20px;
 }
 
+.skill-block-wrapper > :first-child {
+  grid-column: 1 / -1;
+}
+
 #cv .container {
   display: flex;
   flex-direction: column;
@@ -185,8 +189,8 @@ footer .link:hover::before {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .skill-block img {
-    width: 40px;
+  .skill-block-wrapper > :first-child {
+    grid-column: 1 / -1;
   }
 
   #welcome .catch-phrase {
@@ -207,6 +211,10 @@ footer .link:hover::before {
 
   .skill-block-wrapper {
     grid-template-columns: 1fr;
+  }
+
+  .skill-block-wrapper > :first-child {
+    grid-column: auto;
   }
 
   section .container {

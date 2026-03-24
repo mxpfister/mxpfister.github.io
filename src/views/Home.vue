@@ -4,15 +4,46 @@ import SkillBlock from '@/components/SkillBlock.vue';
 import { ref, onMounted } from "vue"
 import { SpinningText } from '../Three/SpinningText.js'
 
-const skills = ref(
-    [
-        { name: 'HTML', imgUrl: 'images/skill-logos/html.svg', alt: 'HTML Logo', color: '#ffa02e'},
-        { name: 'CSS', imgUrl: 'images/skill-logos/css.svg', alt: 'CSS Logo', color: '#2965F1'},
-        { name: 'JavaScript', imgUrl: 'images/skill-logos/js.svg', alt: 'JavaScript Logo', color: '#ffd600'},
-        { name: 'PHP', imgUrl: 'images/skill-logos/php.svg', alt: 'PHP Logo', color: '#927ba9'},
-        { name: 'Python', imgUrl: 'images/skill-logos/python.svg', alt: 'Python Logo', color: '#0295ec'},
-    ]
-);
+const skills = ref([
+    {
+        title: 'Web Development',
+        color: '#d16464',
+        items: ['PHP', 'JavaScript', 'MySQL', 'HTML', 'CSS', 'Python', 'Shopware 6', 'WordPress', 'Git', 'Docker'],
+        logos: [
+            { url: 'images/skill-logos/php.svg', alt: 'PHP Logo' },
+            { url: 'images/skill-logos/js.svg', alt: 'JavaScript Logo' },
+            { url: 'images/skill-logos/html.svg', alt: 'HTML Logo' },
+            { url: 'images/skill-logos/css.svg', alt: 'CSS Logo' },
+            { url: 'images/skill-logos/python.svg', alt: 'Python Logo' },
+        ],
+    },
+    {
+        title: 'Data & AI',
+        color: '#d16464',
+        items: ['Daten-Scraping', 'Datenanalyse', 'KI-Modelle'],
+        logos: [
+            { url: 'images/skill-logos/python.svg', alt: 'Python Logo' },
+            { url: 'images/skill-logos/js.svg', alt: 'JavaScript Logo' },
+        ],
+    },
+    {
+        title: 'Accessibility',
+        color: '#d16464',
+        items: ['Digitale Barrierefreiheit'],
+        logos: [
+            { url: 'images/skill-logos/html.svg', alt: 'HTML Logo' },
+            { url: 'images/skill-logos/css.svg', alt: 'CSS Logo' },
+        ],
+    },
+    {
+        title: 'Digital Business',
+        color: '#d16464',
+        items: ['Anforderungsanalyse', 'Prozessmodellierung', 'Agiles Projektmanagement'],
+        logos: [
+            { url: 'images/skill-logos/php.svg', alt: 'PHP Logo' },
+        ],
+    },
+]);
 
 onMounted(() => {
     const textContainer = document.querySelector('#spinning-text')
@@ -60,8 +91,14 @@ onMounted(() => {
         <div class="container">
             <h2>Skills</h2>
             <div class="skill-block-wrapper">
-                <SkillBlock v-for="skill in skills" :key="skill.imgUrl" :skill-name="skill.name"
-                    :image-url="skill.imgUrl" :image-alt="skill.alt" :color="skill.color"/>
+                <SkillBlock
+                    v-for="skill in skills"
+                    :key="skill.title"
+                    :title="skill.title"
+                    :items="skill.items"
+                    :logos="skill.logos"
+                    :color="skill.color"
+                />
             </div>
         </div>
     </section>
