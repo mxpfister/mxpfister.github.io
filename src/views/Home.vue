@@ -9,38 +9,45 @@ const skills = ref([
         title: 'Web Development',
         color: '#d16464',
         items: ['PHP', 'JavaScript', 'MySQL', 'HTML', 'CSS', 'Python', 'Shopware 6', 'WordPress', 'Git', 'Docker'],
-        logos: [
-            { url: 'images/skill-logos/php.svg', alt: 'PHP Logo' },
-            { url: 'images/skill-logos/js.svg', alt: 'JavaScript Logo' },
-            { url: 'images/skill-logos/html.svg', alt: 'HTML Logo' },
-            { url: 'images/skill-logos/css.svg', alt: 'CSS Logo' },
-            { url: 'images/skill-logos/python.svg', alt: 'Python Logo' },
+        icons: [
+            { name: 'php', label: 'PHP' },
+            { name: 'javascript', label: 'JavaScript' },
+            { name: 'mysql', label: 'MySQL' },
+            { name: 'html', label: 'HTML' },
+            { name: 'css', label: 'CSS' },
+            { name: 'python', label: 'Python' },
+            { name: 'shopware', label: 'Shopware 6' },
+            { name: 'wordpress', label: 'WordPress' },
+            { name: 'git', label: 'Git' },
+            { name: 'docker', label: 'Docker' },
         ],
     },
     {
         title: 'Data & AI',
         color: '#d16464',
         items: ['Daten-Scraping', 'Datenanalyse', 'KI-Modelle'],
-        logos: [
-            { url: 'images/skill-logos/python.svg', alt: 'Python Logo' },
-            { url: 'images/skill-logos/js.svg', alt: 'JavaScript Logo' },
+        icons: [
+            { name: 'scraping', label: 'Daten-Scraping' },
+            { name: 'analysis', label: 'Datenanalyse' },
+            { name: 'ai', label: 'KI-Modelle' },
         ],
     },
     {
         title: 'Accessibility',
         color: '#d16464',
         items: ['Digitale Barrierefreiheit'],
-        logos: [
-            { url: 'images/skill-logos/html.svg', alt: 'HTML Logo' },
-            { url: 'images/skill-logos/css.svg', alt: 'CSS Logo' },
+        icons: [
+            { name: 'accessibility', label: 'Digitale Barrierefreiheit' },
         ],
     },
     {
         title: 'Digital Business',
         color: '#d16464',
         items: ['Anforderungsanalyse', 'Prozessmodellierung', 'Agiles Projektmanagement'],
-        logos: [
-            { url: 'images/skill-logos/php.svg', alt: 'PHP Logo' },
+        icons: [
+            { name: 'requirements', label: 'Anforderungsanalyse' },
+            { name: 'process', label: 'Prozessmodellierung' },
+            { name: 'agile', label: 'Agiles Projektmanagement' },
         ],
     },
 ]);
@@ -96,7 +103,7 @@ onMounted(() => {
                     :key="skill.title"
                     :title="skill.title"
                     :items="skill.items"
-                    :logos="skill.logos"
+                    :icons="skill.icons"
                     :color="skill.color"
                 />
             </div>

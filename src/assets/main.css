@@ -8,7 +8,7 @@ body {
 
 #app {
   font-weight: normal;
-  color: #fff;
+  color: var(--vt-c-white);
 }
 
 .container {

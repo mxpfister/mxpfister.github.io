@@ -27,7 +27,7 @@ export default {
   padding: 20px;
   background-color: var(--dark-bckgr);
   box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #242424;
-  border-radius: 6px;
+  border-radius: 16px;
   padding: 1.75rem;
   transition: 0.4s ease;
   overflow-wrap: break-word;

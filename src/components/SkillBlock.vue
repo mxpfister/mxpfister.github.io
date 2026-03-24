@@ -1,5 +1,26 @@
 <script setup>
 import { computed } from 'vue'
+import {
+  faBrain,
+  faChartLine,
+  faDatabase,
+  faDiagramProject,
+  faMagnifyingGlass,
+  faPeopleGroup,
+  faSitemap,
+  faUniversalAccess,
+} from '@fortawesome/free-solid-svg-icons'
+import {
+  faCss3Alt,
+  faDocker as faDockerBrand,
+  faGitAlt,
+  faHtml5,
+  faJs,
+  faPhp,
+  faPython,
+  faShopify,
+  faWordpress,
+} from '@fortawesome/free-brands-svg-icons'
 
 const props = defineProps({
   title: {
@@ -10,7 +31,7 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-  logos: {
+  icons: {
     type: Array,
     default: () => [],
   },
@@ -20,23 +41,58 @@ const props = defineProps({
   },
 })
 
-const logoSources = computed(() => {
-  return props.logos.map((logo) => ({
-    alt: logo.alt,
-    src: new URL(`../assets/${logo.url}`, import.meta.url).href,
-  }))
+const iconMap = {
+  php: faPhp,
+  javascript: faJs,
+  mysql: faDatabase,
+  html: faHtml5,
+  css: faCss3Alt,
+  python: faPython,
+  shopware: faShopify,
+  wordpress: faWordpress,
+  git: faGitAlt,
+  docker: faDockerBrand,
+  scraping: faMagnifyingGlass,
+  analysis: faChartLine,
+  ai: faBrain,
+  accessibility: faUniversalAccess,
+  requirements: faDiagramProject,
+  process: faSitemap,
+  agile: faPeopleGroup,
+}
+
+const resolvedIcons = computed(() => {
+  return props.icons
+    .map((item) => {
+      const definition = iconMap[item.name]
+      if (!definition) {
+        return null
+      }
+
+      return {
+        key: `${item.name}-${item.label}`,
+        label: item.label,
+        width: definition.icon[0],
+        height: definition.icon[1],
+        path: definition.icon[4],
+      }
+    })
+    .filter(Boolean)
 })
 </script>
 
 <template>
   <article class="skill-block">
-    <div v-if="logoSources.length" class="skill-block-logos" aria-hidden="true">
-      <img
-        v-for="logo in logoSources"
-        :key="logo.src"
-        :src="logo.src"
-        :alt="logo.alt"
+    <div v-if="resolvedIcons.length" class="skill-block-icons" aria-hidden="true">
+      <svg
+        v-for="icon in resolvedIcons"
+        :key="icon.key"
+        class="skill-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        :viewBox="`0 0 ${icon.width} ${icon.height}`"
       >
+        <path :d="icon.path" />
+      </svg>
     </div>
     <h3>{{ props.title }}</h3>
     <div class="skill-item-list">
@@ -51,26 +107,29 @@ const logoSources = computed(() => {
   border-radius: 16px;
   padding: 18px;
   text-align: left;
-  box-shadow: inset 0 0 0 2px #00000026, 0 0 0 2px #00000026, 0 0 15px var(--sec-color);
+  box-shadow: inset 0 0 0 2px #00000026, 0 0 0 2px #00000026, 0 0 7px var(--sec-color);
   transition: box-shadow 500ms;
-  color: #fff;
+  color: #e9e9e9;
+  text-align: center;
+  background-color: var(--dark-bckgr);
 }
 .skill-block-wrapper:hover .skill-block {
   box-shadow: none;
 }
 .skill-block:hover {
-  box-shadow: inset 0 0 0 2px #00000026, 0 0 0 2px #00000026, 0 0 15px var(--sec-color) !important;
+  box-shadow: inset 0 0 0 2px #00000026, 0 0 0 2px #00000026, 0 0 12px var(--sec-color) !important;
 }
-.skill-block-logos {
+.skill-block-icons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   margin-bottom: 10px;
 }
-.skill-block-logos img {
+.skill-icon {
   width: 34px;
   height: 34px;
-  object-fit: contain;
+  fill: currentColor;
 }
 .skill-block h3 {
   margin: 0;
@@ -84,7 +143,7 @@ const logoSources = computed(() => {
   .skill-block {
     padding: 16px;
   }
-  .skill-block-logos img {
+  .skill-icon {
     width: 30px;
     height: 30px;
   }
@@ -101,11 +160,11 @@ const logoSources = computed(() => {
     margin-top: 10px;
     gap: 4px;
   }
-  .skill-block-logos {
+  .skill-block-icons {
     gap: 8px;
     margin-bottom: 8px;
   }
-  .skill-block-logos img {
+  .skill-icon {
     width: 28px;
     height: 28px;
   }
