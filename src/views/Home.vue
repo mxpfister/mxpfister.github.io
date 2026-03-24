@@ -7,7 +7,6 @@ import { SpinningText } from '../Three/SpinningText.js'
 const skills = ref([
     {
         title: 'Web Development',
-        color: '#d16464',
         items: ['PHP', 'JavaScript', 'MySQL', 'HTML', 'CSS', 'Python', 'Shopware 6', 'WordPress', 'Git', 'Docker'],
         icons: [
             { name: 'php', label: 'PHP' },
@@ -24,7 +23,6 @@ const skills = ref([
     },
     {
         title: 'Data & AI',
-        color: '#d16464',
         items: ['Daten-Scraping', 'Datenanalyse', 'KI-Modelle'],
         icons: [
             { name: 'scraping', label: 'Daten-Scraping' },
@@ -33,16 +31,14 @@ const skills = ref([
         ],
     },
     {
-        title: 'Accessibility',
-        color: '#d16464',
-        items: ['Digitale Barrierefreiheit'],
+        title: 'UX & Accessibility',
+        items: ['Prototyping', 'Digitale Barrierefreiheit'],
         icons: [
             { name: 'accessibility', label: 'Digitale Barrierefreiheit' },
         ],
     },
     {
-        title: 'Digital Business',
-        color: '#d16464',
+        title: 'Product Ownership',
         items: ['Anforderungsanalyse', 'Prozessmodellierung', 'Agiles Projektmanagement'],
         icons: [
             { name: 'requirements', label: 'Anforderungsanalyse' },
@@ -84,13 +80,24 @@ onMounted(() => {
             <div id="spinning-text" class="media-wrapper"></div>
             <div class="text-wrapper">
                 <h2>Über mich</h2>
-                <p>Hi, ich bin Web-Entwickler mit Fokus auf die Verbindung von Technik und Business. Mit meinem Bachelor
-                    in E-Commerce und dem aktuellen Master-Studium in "Digital Business Systems", bringe ich Kenntnisse
-                    mit, die über die reine Entwicklung hinausgehen. <br>Meine Erfahrung als Werkstudent umfasst die Entwicklung
-                    individueller Plugins und Themes für WordPress und Shopware 6, sowie die Optimierung von internen Prozessen durch
-                    die Entwicklung eines passenden
-                    CRM-Systems. Aktuell unterstütze ich als Werkstudent in der IT-Abteilung des Fulfillments von Flyeralarm die Abwicklung und Optimierung logistischer Prozesse. Dabei arbeite ich an Schnittstellen, Datenflüssen und Automatisierungen, um interne Abläufe effizienter zu gestalten.<br> In meiner Freizeit beschäftige ich mit der Programmierung, Smart-Home-Technologien
-                    und Automatisierungen. Als Ausgleich betreibe ich gerne Kraftsport, um mich körperlich an meine Grenzen zu bringen.</p>
+                <p>Hi, ich bin Web-Entwickler an der Schnittstelle von Technik und Business. Durch meinen Bachelor in
+                    E-Commerce und den aktuellen Master in "Digital Business Systems" blicke ich über die reine
+                    Code-Ebene hinaus.
+                    <br>
+                    Meine Erfahrung als Werkstudent umfasst individuelle Erweiterungen für Shopware und WordPress sowie
+                    die Digitalisierung von Abläufen durch ein eigens entwickeltes CRM-System. Aktuell unterstütze ich
+                    in der IT-Abteilung des Fulfillments von Flyeralarm die Abwicklung und Optimierung logistischer
+                    Prozesse.
+                    Dabei arbeite ich an Schnittstellen, Datenflüssen und Automatisierungen, um interne Abläufe
+                    effizienter zu gestalten. <br>Was mich dabei besonders antreibt, ist ein breites technisches
+                    Spektrum: Meine Projekterfahrung reicht von der klassischen Webentwicklung über den Einsatz
+                    datengetriebener Analysen (KI, Scraping) bis hin zu UX und digitaler Barrierefreiheit. Diese
+                    Vielfalt ermöglicht es mir, digitale Produkte nicht nur funktional, sondern ganzheitlich und
+                    nutzerzentriert zu denken.
+                    <br> In meiner Freizeit beschäftige ich mich gerne mit (Smart-Home-)Automatisierungen sowie dem
+                    Krypto- und Aktienmarkt. Als Ausgleich betreibe ich Kraftsport, um mich körperlich an meine Grenzen
+                    zu bringen.
+                </p>
             </div>
         </div>
     </section>
@@ -98,14 +105,8 @@ onMounted(() => {
         <div class="container">
             <h2>Skills</h2>
             <div class="skill-block-wrapper">
-                <SkillBlock
-                    v-for="skill in skills"
-                    :key="skill.title"
-                    :title="skill.title"
-                    :items="skill.items"
-                    :icons="skill.icons"
-                    :color="skill.color"
-                />
+                <SkillBlock v-for="skill in skills" :key="skill.title" :title="skill.title" :items="skill.items"
+                    :icons="skill.icons" :color="skill.color" />
             </div>
         </div>
     </section>
