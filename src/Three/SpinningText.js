@@ -84,7 +84,7 @@ class SpinningText {
 
                 const borderText = new THREE.Mesh(
                     outerTextGeometry,
-                    new THREE.MeshPhysicalMaterial({ color: 0xd16464 })
+                    new THREE.MeshPhysicalMaterial({ color: 0xdfd5555 })
                 );
                 borderText.position.z = 0.5;
 

@@ -34,11 +34,7 @@ const props = defineProps({
   icons: {
     type: Array,
     default: () => [],
-  },
-  color: {
-    type: String,
-    default: '#d16464',
-  },
+  }
 })
 
 const iconMap = {
