@@ -93,6 +93,16 @@ section#skills .container {
   margin: auto;
 }
 
+#spinning-text {
+  height: clamp(190px, 26vw, 270px);
+}
+
+#spinning-text canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
 .media-wrapper img {
   max-width: 100%;
   height: auto;
@@ -227,6 +237,10 @@ footer .link:hover::before {
 
   section#about-me .text-wrapper {
     width: 100%;
+  }
+
+  #spinning-text {
+    height: 160px;
   }
 
   section#cv h2 {

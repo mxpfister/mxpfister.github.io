@@ -52,8 +52,8 @@ onMounted(() => {
     const textContainer = document.querySelector('#spinning-text')
     if (textContainer) {
         new SpinningText(textContainer, '</>', {
-            size: 30,
-            depth: 5,
+            size: 35,
+            depth: 4,
             curveSegments: 4,
             bevelThickness: 0
         })

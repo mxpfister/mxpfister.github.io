@@ -20,8 +20,6 @@ class SpinningText {
             rotationSpeed: options.rotationSpeed || 0.01,
         };
 
-        this.containerHeight = this.container.parentElement.offsetHeight;
-
         this.scene = null;
         this.camera = null;
         this.renderer = null;
@@ -35,19 +33,22 @@ class SpinningText {
     }
 
     init() {
+        const { width, height } = this.getContainerSize();
+
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color().setHex(this.options.background);
 
         this.camera = new THREE.PerspectiveCamera(
             50,
-            this.container.offsetWidth / this.containerHeight,
+            width / height,
             0.1,
             1000
         );
         this.camera.position.z = 100;
 
         this.renderer = new THREE.WebGLRenderer();
-        this.renderer.setSize(this.container.offsetWidth, this.containerHeight);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        this.renderer.setSize(width, height);
         this.container.appendChild(this.renderer.domElement);
 
         const fontLoader = new FontLoader();
@@ -106,10 +107,22 @@ class SpinningText {
         window.addEventListener('resize', () => this.onWindowResize());
     }
 
+    getContainerSize() {
+        const width = this.container.clientWidth || this.container.offsetWidth || 320;
+        const height = this.container.clientHeight || this.container.offsetHeight || 220;
+
+        return {
+            width,
+            height,
+        };
+    }
+
     onWindowResize() {
-        this.camera.aspect = this.container.offsetWidth / this.containerHeight;
+        const { width, height } = this.getContainerSize();
+
+        this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
-        this.renderer.setSize(this.container.offsetWidth, this.containerHeight);
+        this.renderer.setSize(width, height);
     }
 
     addInteractionListeners() {
