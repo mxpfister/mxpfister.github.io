@@ -91,7 +91,7 @@ onMounted(() => {
                     Dabei arbeite ich an Schnittstellen, Datenflüssen und Automatisierungen, um interne Abläufe
                     effizienter zu gestalten. <br>Was mich dabei besonders antreibt, ist ein breites technisches
                     Spektrum: Meine Projekterfahrung reicht von der klassischen Webentwicklung über den Einsatz
-                    datengetriebener Analysen (KI, Scraping) bis hin zu UX und digitaler Barrierefreiheit. Diese
+                    datengetriebener Analysen bis hin zu UX und digitaler Barrierefreiheit. Diese
                     Vielfalt ermöglicht es mir, digitale Produkte nicht nur funktional, sondern ganzheitlich und
                     nutzerzentriert zu denken.
                     <br> In meiner Freizeit beschäftige ich mich gerne mit (Smart-Home-)Automatisierungen sowie dem
