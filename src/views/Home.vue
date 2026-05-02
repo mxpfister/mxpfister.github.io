@@ -32,7 +32,7 @@ const skills = ref([
     },
     {
         title: 'UX & Accessibility',
-        items: ['Prototyping', 'Digitale Barrierefreiheit'],
+        items: ['Prototyping', '(Digitale) Barrierefreiheit (IAAP CPACC zertifiziert)'],
         icons: [
             { name: 'accessibility', label: 'Digitale Barrierefreiheit' },
         ],
