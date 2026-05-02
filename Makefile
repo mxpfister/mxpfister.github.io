@@ -7,6 +7,7 @@ deploy:
 		echo "Error: dist directory not found. Run build first."; \
 		exit 1; \
 	fi
+	git pull origin gh-pages
 	cp -a dist/. ./
 	rm -rf dist
 	git add -A
