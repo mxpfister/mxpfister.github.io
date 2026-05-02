@@ -40,7 +40,7 @@ footer {
 }
 
 #welcome {
-  padding-bottom: 0;
+  padding: 0;
 }
 
 #welcome .media-wrapper {
@@ -50,6 +50,7 @@ footer {
 #welcome img {
   position: relative;
   top: 7px;
+  width: 90%;
 }
 
 #welcome .text-wrapper:last-of-type p {
