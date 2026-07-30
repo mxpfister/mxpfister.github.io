@@ -7,7 +7,7 @@ import { SpinningText } from '../Three/SpinningText.js'
 const skills = ref([
     {
         title: 'Web Development',
-        items: ['PHP', 'JavaScript', 'MySQL', 'HTML', 'CSS', 'Python', 'Shopware 6', 'WordPress', 'Git', 'Docker'],
+        items: ['PHP', 'JavaScript', 'MySQL', 'HTML', 'CSS', 'Python', 'Shopware 6', 'WordPress', 'Git', 'Docker', 'Proxmox'],
         icons: [
             { name: 'php', label: 'PHP' },
             { name: 'javascript', label: 'JavaScript' },
@@ -94,8 +94,9 @@ onMounted(() => {
                     datengetriebener Analysen bis hin zu UX und digitaler Barrierefreiheit. Diese
                     Vielfalt ermöglicht es mir, digitale Produkte nicht nur funktional, sondern ganzheitlich und
                     nutzerzentriert zu denken.
-                    <br> In meiner Freizeit beschäftige ich mich gerne mit (Smart-Home-)Automatisierungen sowie dem
-                    Krypto- und Aktienmarkt. Als Ausgleich betreibe ich Kraftsport, um mich körperlich an meine Grenzen
+                    <br>
+                    In meiner Freizeit beschäftige ich mich gerne mit meinen zwei Homelabs sowie dem
+                    Finanzmarkt. Als Ausgleich betreibe ich Kraftsport, um mich körperlich an meine Grenzen
                     zu bringen.
                 </p>
             </div>
